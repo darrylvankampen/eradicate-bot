@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         mentioned: {
             type: DataTypes.STRING,
+        },
+        reason: {
+            type: DataTypes.STRING,
         }
     }, {
         timestamps: true
