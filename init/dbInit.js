@@ -30,6 +30,8 @@ const sequelize = new Sequelize(database.name, database.username, database.passw
 
 sequelize.import("../models/Guild");
 sequelize.import("../models/Log");
+sequelize.import("../models/Users");
+sequelize.import("../models/Currency");
 
 const force = process.argv.includes('--force') || process.argv.includes('-f');
 

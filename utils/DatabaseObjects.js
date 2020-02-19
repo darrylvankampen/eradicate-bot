@@ -13,7 +13,10 @@ const sequelize = new Sequelize(database.name, database.username, database.passw
 
 const Guilds = sequelize.import("../models/Guild");
 const Logs = sequelize.import('../models/Log');
+const Users = sequelize.import('../models/Users');
+const Currency = sequelize.import('../models/Currency')
 
+Currency.belongsTo(Users, { foreignKey: 'user_id', as: 'user' })
 Logs.belongsTo(Guilds, { foreignKey: 'guild_id', as: 'guild' });
 
 Logs.prototype.addLog = async function (log) {
@@ -28,4 +31,4 @@ Logs.prototype.addLog = async function (log) {
     }
 }
 
-module.exports = { Guilds, Logs };
+module.exports = { Guilds, Logs, Users, Currency };
